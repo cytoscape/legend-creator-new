@@ -44,7 +44,7 @@ public class LegendPanel extends JPanel implements CytoPanelComponent {
 
 	public Component getComponent() 			{		return this;	}
 	public CytoPanelName getCytoPanelName() 	{		return CytoPanelName.EAST;	}
-	public String getTitle() 					{		return "Legend Panel";	}
+	public String getTitle() 					{		return "Legend";	}
 	public Icon getIcon() 						{		return null;	}
 
 	private static boolean showDebugButtons = false;
@@ -55,7 +55,9 @@ public class LegendPanel extends JPanel implements CytoPanelComponent {
 	JTextField title  = new JTextField();
 	JTextField subtitle  = new JTextField();
 
-	JButton adder = new JButton("Refresh Legend");
+	JButton adder = new JButton("Save Legend to Network");
+	JButton saveToFile = new JButton("Save Legend to file");
+	JButton previewLegend = new JButton("Preview Legend");
 	JButton selectAll = new JButton("Select All Annotations");			// DEBUG
 	JButton clearAll = new JButton("Remove All Legends");
 	JButton tester = new JButton("Test");
@@ -70,14 +72,8 @@ public class LegendPanel extends JPanel implements CytoPanelComponent {
 
 		JPanel intro = new JPanel();
 		intro.setLayout(new BoxLayout(intro, BoxLayout.PAGE_AXIS));
-		JLabel label1 = new JLabel("Legends are drawn as annotations in the background canvas.");
-		JLabel label2 = new JLabel("Use these controls to customize your legend.");
-		intro.add(line(label1));
-		intro.add(line(label2));
 		intro.setBorder(BorderFactory.createEmptyBorder(6, 6, 6, 6));
 		add(intro);
-		LookAndFeelUtil.makeSmall(label1);
-		LookAndFeelUtil.makeSmall(label2);
 
 		optionsPanel = new JPanel();
 //		optionsPanel.setAlignmentX(0f);
@@ -125,6 +121,8 @@ public class LegendPanel extends JPanel implements CytoPanelComponent {
 		};
 		adder.addActionListener(layout);
 		add(line(clearAll, adder));
+		add(line(saveToFile, previewLegend));
+
 //		add(line(clickNotice));
 //		clickNotice.setVisible(false);
 
