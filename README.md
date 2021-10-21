@@ -1,2 +1,2 @@
-# legend-creator-new
-New version of legend creator app for Cytoscape
+# Cytoscape 3 App: Legend-creator (New version)
+New version of legend creator app(https://github.com/cytoscape/legend-creator) for Cytoscape
